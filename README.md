@@ -4,21 +4,16 @@ A simple task management web application where users can create, edit, delete, a
 
 ## Technologies Used
 
-
 - **Backend:** Flask (Python)
 - **Database:** SQLite
-
 - **Frontend:** React
 - **Authentication:** JWT (planned)
-
 - **Deployment:** Heroku
 
 ## Features
 
-
 - Create, read, update, and delete tasks.
 - Mark tasks as complete.
-
 - User authentication using JWT (planned).
 - Role-based access control (planned).
 
@@ -27,65 +22,62 @@ task-management-app/
 │
 ├── task-management-backend/
 │ ├── app.py
-│ ├── task_management.db
+│ ├── requirements.txt
 │ ├── venv/
-│ └── ...
+│ └── instance/
+│ │ ├──task_management.db
 │
 ├── task-management-frontend/
+│ ├── node_modules/
 │ ├── public/
+│ │ └── favicon.ico
+│ │ └── index.html
+│ │ └── logo192.png
+│ │ └── logo512.png
+│ │ └── manifest.json
+│ │ └── robots.txt
 │ ├── src/
 │ │ ├── App.js
 │ │ ├── index.js
-│ │ └── ...
+│ │ └── App.test.js
+│ │ └── index.css
+│ │ └── logo.svg
+│ │ └── reportWebVitals.js
+│ │ └── setupTests.js
 │ ├── package.json
-│ └── ...
+│ ├── package-lock.json
+│ ├── README.md
+│ └── .gitignore
 │
 ├── .gitignore
 ├── LICENSE
 └── README.md
 
 ## Setup Instructions
-
-### Backend
-
-
-1. Clone the repository:
-   ```sh
-   git clone https://github.com/Oliviaheckert/task-management-app.git
-   cd task-management-app/task-management-backend
-
-1. Create a virtual environment and activate it:
+1. Backend:
+```bash
+cd task-management-backend
 python -m venv venv
-source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
-
-2. Install dependencies:
+.\venv\Scripts\Activate
 pip install -r requirements.txt
-
-3. Run the Flask server:
 python app.py
 
-
-Frontend
-1. Navigate to the frontend directory:
-cd ../task-management-frontend
-
-2. Install dependencies:
+2. Frontend:
+bash
+Copy Code
+cd task-management-frontend
 npm install
-
-3. Run the React development server:
 npm start
 
 
-Deployment: Heroku
-1. Install the Heroku CLI
-2. Log in to Heroku:
-heroku login
-
-3. Create a new Heroku app:
-heroku create task-management-app
-
-4. Push the code to Heroku:
-git push heroku main
-
-5. Open the app:
-heroku open
+ ## Day 1 Achievements
+   - Configured Flask/SQLite backend
+   - Initialized React frontend
+   - Verified API-database connection
+   
+📌 **Day 1 Requirements Met**
++ Flask project initialized
++ SQLite database configured
++ React project created
++ Git version control set up
++ Basic API endpoint tested
