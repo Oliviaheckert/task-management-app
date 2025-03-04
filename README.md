@@ -22,10 +22,14 @@ task-management-app/
 │
 ├── task-management-backend/
 │ ├── app.py
+│ ├── models.py
+│ ├── schemas.py
 │ ├── requirements.txt
 │ ├── venv/
 │ └── instance/
 │ │ ├──task_management.db
+│ └── tests/
+│ │ ├──test_backend.py
 │
 ├── task-management-frontend/
 │ ├── node_modules/
@@ -70,10 +74,10 @@ npm install
 npm start
 
 
- ## Day 1 Achievements
-   - Configured Flask/SQLite backend
-   - Initialized React frontend
-   - Verified API-database connection
+# Day 1 Achievements
+  - Configured Flask/SQLite backend
+  - Initialized React frontend
+  - Verified API-database connection
    
 📌 **Day 1 Requirements Met**
 + Flask project initialized
@@ -81,3 +85,16 @@ npm start
 + React project created
 + Git version control set up
 + Basic API endpoint tested
+
+# Day 2 Achievements  
+- Implemented full CRUD operations  
+- Added field validation & error handling  
+- Created unit tests for all endpoints  
+- Established foreign key relationships  
+
+📌 **Day 2 Requirements Met**  
++ ✅ RESTful API with CRUD endpoints  
++ ✅ Database schema with constraints  
++ ✅ Status field validation  
++ ✅ Unit tests for 400/404/500 errors  
++ ✅ API documentation in README  
