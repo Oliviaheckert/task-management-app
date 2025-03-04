@@ -32,7 +32,6 @@ from schemas import task_schema, tasks_schema
 
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
-
 # Error handlers
 @app.errorhandler(404)
 def not_found(error):
