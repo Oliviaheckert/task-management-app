@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import TaskList from './components/TaskList';
+import TaskCreate from './components/TaskCreate';
+import TaskEdit from './components/TaskEdit';
+import TaskDetails from './components/TaskDetails';
 
-function App() {
+const App = () => {
+  // Add a test message to verify rendering
+  console.log('App component rendering');
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <h1>Task Management App</h1> {/* Add this to test basic rendering */}
+        <Routes>
+          <Route path="/" element={<TaskList />} />
+          <Route path="/tasks/create" element={<TaskCreate />} />
+          <Route path="/tasks/:id/edit" element={<TaskEdit />} />
+          <Route path="/tasks/:id" element={<TaskDetails />} />
+        </Routes>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;

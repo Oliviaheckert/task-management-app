@@ -1,10 +1,10 @@
-from models import db
-from app import app
+from app import app, db
 
-def initialize_db():
+def init_database():
     with app.app_context():
+        # Create all tables
         db.create_all()
-        print("Database initialized")
+        print("Database initialized successfully!")
 
 if __name__ == '__main__':
-    initialize_db()
+    init_database()

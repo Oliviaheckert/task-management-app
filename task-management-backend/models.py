@@ -32,4 +32,4 @@ class Task(db.Model):
             "status IN ('pending', 'in_progress', 'completed')",
             name='check_task_status_valid'
         ),
-    )
+    ) 

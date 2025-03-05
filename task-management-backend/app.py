@@ -5,17 +5,17 @@ from datetime import timedelta
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from flask_migrate import Migrate
-from flask_jwt_extended import JWTManager
+from flask_jwt_extended import JWTManager, create_access_token
 
 from sqlalchemy.exc import IntegrityError
-from werkzeug.security import generate_password_hash
+from werkzeug.security import check_password_hash, generate_password_hash
 
 from models import db, Task, User
 from schemas import ma, task_schema, tasks_schema
 
 # Initialize app
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/api/*": {"origins": "http://localhost:3000"}})
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
     'DATABASE_URL', 'sqlite:///task_management.db'
 )
@@ -202,10 +202,23 @@ def health_check():
     })
 
 # JWT Setup (Preparation for Day 4)
-app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(hours=1)
-app.config['JWT_SECRET_KEY'] = os.environ.get('JWT_SECRET', 'super-secret')
+app.config['JWT_SECRET_KEY'] = 'your-jwt-secret'
 jwt = JWTManager(app)
+
+@app.route('/api/login', methods=['POST'])
+def login():
+    data = request.get_json()
+    user = User.query.filter_by(username=data['username']).first()
+    if user and check_password_hash(user.password, data['password']):
+        access_token = create_access_token(identity=user.id)
+        return jsonify(access_token=access_token), 200
+    return jsonify({"error": "Invalid credentials"}), 401
+
+# Root route
+@app.route('/', methods=['GET'])
+def home():
+    return jsonify({"message": "Welcome to the Task Management API!"}), 200
 
 # Change the last lines to:
 if __name__ == '__main__':
-    app.run(debug=True) 
+    app.run(debug=True)  

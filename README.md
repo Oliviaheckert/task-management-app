@@ -1,58 +1,51 @@
-# Task Management App
+# Task Management Application
 
-A simple task management web application where users can create, edit, delete, and mark tasks as complete. The application includes both a front-end interface and a back-end API.
+A full-stack task management application built with Flask (Backend) and React (Frontend), featuring CRUD operations and a responsive user interface.
 
 ## Technologies Used
 
-- **Backend:** Flask (Python)
-- **Database:** SQLite
-- **Frontend:** React
-- **Authentication:** JWT (planned)
-- **Deployment:** Heroku
+### Backend
+- Flask (Python)
+- SQLite Database
+- Flask-SQLAlchemy (ORM)
+- Flask-Marshmallow (Serialization)
+- Flask-JWT-Extended (Authentication)
+- Flask-CORS (Cross-Origin Resource Sharing)
+
+### Frontend
+- React
+- React Router DOM
+- Axios (API calls)
+- CSS3 (Styling)
 
 ## Features
 
-- Create, read, update, and delete tasks.
-- Mark tasks as complete.
-- User authentication using JWT (planned).
-- Role-based access control (planned).
+- Create, Read, Update, and Delete tasks
+- Responsive design for mobile and desktop
+- Form validation
+- Error handling
+- Loading states
+- User-friendly interface
+- Status tracking for tasks (Pending, In Progress, Completed)
 
 ## Project Structure
+
+```bash
 task-management-app/
-│
 ├── task-management-backend/
-│ ├── app.py
-│ ├── models.py
-│ ├── schemas.py
-│ ├── requirements.txt
-│ ├── venv/
-│ └── instance/
-│ │ ├──task_management.db
-│ └── tests/
-│ │ ├──test_backend.py
+│   ├── app.py                 # Flask application
+│   ├── init_db.py
+│   ├── models.py             # Database models
+│   ├── schemas.py            # Marshmallow schemas
+│   ├── tests/                # Unit tests
+│   └── requirements.txt      # Python dependencies
 │
-├── task-management-frontend/
-│ ├── node_modules/
-│ ├── public/
-│ │ └── favicon.ico
-│ │ └── index.html
-│ │ └── logo192.png
-│ │ └── logo512.png
-│ │ └── manifest.json
-│ │ └── robots.txt
-│ ├── src/
-│ │ ├── App.js
-│ │ ├── index.js
-│ │ └── App.test.js
-│ │ └── index.css
-│ │ └── logo.svg
-│ │ └── reportWebVitals.js
-│ │ └── setupTests.js
-│ ├── package.json
-│ ├── package-lock.json
-│ ├── README.md
-│ └── .gitignore
-│
+└── task-management-frontend-new/
+    ├── public/               # Static files (index.html)
+    └── src/
+        ├── components/       # React components
+        ├── services/         # API services
+        └── styles           # CSS styles
 ├── .gitignore
 ├── LICENSE
 └── README.md
@@ -64,37 +57,52 @@ cd task-management-backend
 python -m venv venv
 .\venv\Scripts\Activate
 pip install -r requirements.txt
+python init_db.py
 python app.py
 
 2. Frontend:
 bash
-Copy Code
 cd task-management-frontend
 npm install
 npm start
 
+API Endpoints: 
+GET /api/tasks - Get all tasks
+GET /api/tasks/<id> - Get single task
+POST /api/tasks - Create new task
+PUT /api/tasks/<id> - Update task
+DELETE /api/tasks/<id> - Delete task
 
-# Day 1 Achievements
-  - Configured Flask/SQLite backend
-  - Initialized React frontend
-  - Verified API-database connection
-   
-📌 **Day 1 Requirements Met**
-+ Flask project initialized
-+ SQLite database configured
-+ React project created
-+ Git version control set up
-+ Basic API endpoint tested
+Implementation Details
+Backend Architecture:
+Flask RESTful API with SQLite database
+SQLAlchemy ORM for database operations
+Marshmallow for serialization
+Comprehensive error handling
+CORS support for frontend integration
 
-# Day 2 Achievements  
-- Implemented full CRUD operations  
-- Added field validation & error handling  
-- Created unit tests for all endpoints  
-- Established foreign key relationships  
+Frontend Architecture:
+React components for modular design
+React Router for navigation
+Axios for API communication
+Responsive CSS for mobile support
+Form validation and error handling
 
-📌 **Day 2 Requirements Met**  
-+ ✅ RESTful API with CRUD endpoints  
-+ ✅ Database schema with constraints  
-+ ✅ Status field validation  
-+ ✅ Unit tests for 400/404/500 errors  
-+ ✅ API documentation in README  
+Design Choices:
+SQLite Database: Chosen for simplicity and portability
+Flask Framework: Selected for its lightweight nature and easy setup
+React: Used for its component-based architecture and efficient rendering
+CSS Styling: Custom CSS for complete control over design and responsiveness
+
+Testing:
+Backend tests using pytest
+API endpoint testing
+Error handling verification
+Database operation validation
+
+Future Enhancements:
+User authentication with JWT
+Role-based access control
+Task categories and filtering
+Due dates and reminders
+Task sharing capabilities
