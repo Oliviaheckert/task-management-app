@@ -1,2 +1,3 @@
 add authentication
 make full stack
+make intermediate 
