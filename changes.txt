@@ -1,3 +1,4 @@
 add authentication
 make full stack
-make intermediate app. 
+make intermediate app
+add an interesting feature to learn from
